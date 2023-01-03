@@ -1,0 +1,80 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #000205;
+    background-color: darkgrey;
+}
+
+.brand{
+    color: rgb(255, 230, 0);
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: 750;
+    margin-left: 10px;
+
+}
+.container-up{
+    padding-top: 15px;
+}
+
+
+.brand{
+    display: inline-block;
+}
+
+.container-main{
+    margin-top: 20px;
+}
+
+
+
+.search-div{
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-inp{
+   width: 450px;
+   margin-right: 50px;
+   height: 35px;
+   border-radius: 50px;
+}
+
+.search-link{
+    color: rgb(255, 230, 0);
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.text-1{
+    color: rgb(255, 230, 0);
+    font-size: 25px;
+    font-weight: normal;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.film-title{
+    text-align: center;
+}
+
+.films{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.film{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.film-link, .score{
+    text-align: center;
+
+}
+
+.contact{
+    text-align: center;
+}

@@ -1,0 +1,12 @@
+header ul li {
+    display: inline;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+
+.ss{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: normal;
+}
