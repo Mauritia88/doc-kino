@@ -1,7 +1,6 @@
 <?php
 
 use app\models\Actors;
-use app\models\Film;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
