@@ -44,7 +44,7 @@ AppAsset::register($this);
             ['label' => 'Главная', 'url' => ['/site/index']],
             ['label' => 'Регистрация', 'url' => ['site/signup'], 'visible' => Yii::$app->user->isGuest],
 
-            !Yii::$app->user->isGuest ? ['label' => 'Добавить', 'items' => [
+            Yii::$app->user->can('admin') ? ['label' => 'Добавить', 'items' => [
                 ['label' => 'Фильмы', 'url' => ['/film/index']],
                 ['label' => 'Категории', 'url' => ['/category/index']],
                 ['label' => 'Актеры', 'url' => ['/movie/actors/index']],

@@ -5,7 +5,6 @@ namespace app\controllers;
 use app\models\Film;
 use app\models\FilmSearch;
 use app\models\SignupForm;
-use app\models\Users;
 use yii\behaviors\TimestampBehavior;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
@@ -26,11 +25,16 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['login', 'logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['login', 'signup'],
                         'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['logout'],
                         'roles' => ['@'],
                     ],
                 ],
@@ -159,6 +163,33 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+    public function actionRole()
+    {
+//        $admin = Yii::$app->authManager->createRole('admin');
+//        $admin->description = 'Админ';
+//        Yii::$app->authManager->add($admin);
+//
+//        $role = Yii::$app->authManager->createRole('user');
+//        $role->description = 'Юзер';
+//        Yii::$app->authManager->add($role);
+
+//        $permit = Yii::$app->authManager->createPermission('deleteFilms');
+//        $permit->description = 'Право удалять фильмы, актеры и категории';
+//        Yii::$app->authManager->add($permit);
+
+//        $role = Yii::$app->authManager->getRole('admin');
+//        $permit = Yii::$app->authManager->getPermission('deleteFilms');
+//        Yii::$app->authManager->addChild($role, $permit);
+
+//        $userRole = Yii::$app->authManager->getRole('admin');
+//        Yii::$app->authManager->assign($userRole, 1);
+
+//        $userRole = Yii::$app->authManager->getRole('user');
+//        Yii::$app->authManager->assign($userRole, 3);
+
+
+        return 123;
+    }
 
 
 }

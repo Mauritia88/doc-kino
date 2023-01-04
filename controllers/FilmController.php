@@ -9,6 +9,7 @@ use app\models\ImageUpload;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\data\ArrayDataProvider;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -28,6 +29,23 @@ class FilmController extends Controller
         return array_merge(
             parent::behaviors(),
             [
+                'access' => [
+                    'class' => AccessControl::className(),
+                    'rules' => [
+                        [
+                            'allow' => true,
+                            'actions' => ['index', 'update', 'create', 'delete'],
+                            'roles' => ['admin'],
+                        ],
+                        [
+                            'actions' => ['view', 'index_list', 'index-search'],
+                            'allow' => true,
+                            'roles' => ['?', '@'],
+                        ],
+
+                    ],
+                ],
+
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [

@@ -9,7 +9,7 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
@@ -45,13 +45,16 @@ $config = [
         'db' => $db,
 
 
-       'urlManager' => [
+        'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
                 '<action:(about|contact|login)>' => 'site/<action>',
                 '<action:[-a-zA-Z0-9_]+>' => 'film/<action>',
-                ],
+            ],
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\PhpManager'
         ],
 
     ],
@@ -59,7 +62,11 @@ $config = [
         'movie' => [
             'class' => 'app\modules\movie\Movie',
         ],
+        'admin' => [
+            'class' => 'mdm\admin\Module',
+        ]
     ],
+
     'params' => $params,
 ];
 
