@@ -1,11 +1,12 @@
 <?php
 
-use app\models\Actors;
+
+use app\modules\movie\models\Actors;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var app\models\Actors $model */
+/** @var app\modules\movie\models\Actors $model */
 
 $this->title = $model->lastName.' '.$model->firstName;
 $this->params['breadcrumbs'][] = ['label' => 'Актёры', 'url' => ['index']];

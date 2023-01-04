@@ -1,6 +1,7 @@
 <?php
 
-use app\models\Actors;
+
+use app\modules\movie\models\Actors;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;

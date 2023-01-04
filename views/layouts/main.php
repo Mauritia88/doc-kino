@@ -48,7 +48,7 @@ AppAsset::register($this);
             !Yii::$app->user->isGuest ? ['label' => 'Добавить', 'items' => [
                 ['label' => 'Фильмы', 'url' => ['/film/index']],
                 ['label' => 'Категории', 'url' => ['/category/index']],
-                ['label' => 'Актеры', 'url' => ['/actors/index']],
+                ['label' => 'Актеры', 'url' => ['/movie/actors/index']],
                 ['label' => 'Соответствие', 'url' => ['/actfilm/index']],
             ]] : '',
 

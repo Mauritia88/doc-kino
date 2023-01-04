@@ -3,6 +3,7 @@
 namespace app\models;
 
 
+use app\modules\movie\models\Actors;
 use yii\web\UploadedFile;
 
 /**

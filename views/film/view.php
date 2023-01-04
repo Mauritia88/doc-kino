@@ -74,7 +74,7 @@ $this->title = $model->title;
                     'value' => function($model, $key) {
                         $result = '';
                         $result .= $model->firstName.' ';
-                        $result .= Html::a($model->lastName, ['actors/view', 'id_actor' => $model->id_actor], ['class' => 'profile-link text-decoration-none text-reset']) ;
+                        $result .= Html::a($model->lastName, ['movie/actors/view', 'id_actor' => $model->id_actor], ['class' => 'profile-link text-decoration-none text-reset']) ;
                         return $result;
                     },
                     'format' => 'html',

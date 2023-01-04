@@ -1,7 +1,8 @@
 <?php
 
-namespace app\models;
+namespace app\modules\movie\models;
 
+use app\models\Film;
 use Yii;
 
 /**

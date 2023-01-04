@@ -1,9 +1,10 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\movie\controllers;
 
-use app\models\Actors;
-use app\models\ActorsSearch;
+
+use app\modules\movie\models\Actors;
+use app\modules\movie\models\ActorsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

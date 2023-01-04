@@ -44,6 +44,7 @@ $config = [
         ],
         'db' => $db,
 
+
        'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -53,6 +54,11 @@ $config = [
                 ],
         ],
 
+    ],
+    'modules' => [
+        'movie' => [
+            'class' => 'app\modules\movie\Movie',
+        ],
     ],
     'params' => $params,
 ];
