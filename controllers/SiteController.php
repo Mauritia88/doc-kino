@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\models\Film;
 use app\models\FilmSearch;
+use app\models\SignupForm;
+use app\models\Users;
 use yii\behaviors\TimestampBehavior;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
@@ -89,6 +91,30 @@ class SiteController extends Controller
 
         $model->password = '';
         return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+    /**
+     * Форма регистрации.
+     *
+     * @return mixed
+     */
+    public function actionSignup()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+        return $this->render('signup', [
             'model' => $model,
         ]);
     }

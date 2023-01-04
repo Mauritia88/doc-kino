@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Actfilm;
+use app\modules\movie\models\Actors;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -30,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'Актер',
                 'value' => function ($data) {
-                    return \app\models\Actors::findOne(['id_actor' => $data->id_a])->lastName;}
+                    return Actors::findOne(['id_actor' => $data->id_a])->lastName;}
             ],
             [
                 'attribute' => 'Фильм',

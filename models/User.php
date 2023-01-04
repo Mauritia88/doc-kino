@@ -29,7 +29,7 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
 
     public static function tableName()
     {
-        return '{{%user}}';
+        return '{{%users}}';
     }
 
     /**

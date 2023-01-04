@@ -16,7 +16,7 @@ class m221109_065129_create_users_table extends Migration
             'id_user' => $this->primaryKey(),
             'family' => $this->string()->notNull(),
             'name' => $this->string()->notNull(),
-            'patronymic' => $this->string()->notNull(),
+            'patronymic' => $this->string(),
             'login' => $this->string()->notNull(),
             'password' => $this->string()->notNull(),
             'email' => $this->string()->notNull(),

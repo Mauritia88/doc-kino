@@ -42,8 +42,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav ml-auto'],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
-//            ['label' => 'Фильмы', 'url' => ['/film/index']],
-//            ['label' => 'Про сайт', 'url' => ['/site/about']],
+            ['label' => 'Регистрация', 'url' => ['site/signup'], 'visible' => Yii::$app->user->isGuest],
 
             !Yii::$app->user->isGuest ? ['label' => 'Добавить', 'items' => [
                 ['label' => 'Фильмы', 'url' => ['/film/index']],
@@ -54,12 +53,12 @@ AppAsset::register($this);
 
 
             Yii::$app->user->isGuest ? (
-            ['label' => 'Регистрация/Авторизация', 'url' => ['/site/login']]
+            ['label' => 'Войти', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
                 . Html::submitButton(
-                    'Выход (' . Yii::$app->user->identity->username . ')',
+                    'Выход (' . Yii::$app->user->identity->login . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()

@@ -8,7 +8,7 @@ use yii\base\Model;
 /**
  * LoginForm is the model behind the login form.
  *
- * @property-read User|null $user
+ * @property-read Users|null $user
  *
  */
 class LoginForm extends Model
@@ -68,12 +68,12 @@ class LoginForm extends Model
     /**
      * Finds user by [[username]]
      *
-     * @return User|null
+     * @return Users
      */
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = User::findByUsername($this->login);
+            $this->_user = Users::findByUsername($this->login);
         }
 
         return $this->_user;
