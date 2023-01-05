@@ -1,7 +1,9 @@
 <?php
 
+
 use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 use app\models\Category;
 
@@ -63,7 +65,7 @@ $this->title = $model->title;
                 ]) ?>
             </div>
         </div>
-<!--        --><?//= Html::label("Актерский состав:") ?>
+        <!--        --><? //= Html::label("Актерский состав:") ?>
         <?= GridView::widget([
             'dataProvider' => $movieDataProvider,
             'summary' => false,
@@ -71,23 +73,32 @@ $this->title = $model->title;
 
                 [
                     'attribute' => 'Актерский состав:',
-                    'value' => function($model, $key) {
+                    'value' => function ($model, $key) {
                         $result = '';
-                        $result .= $model->firstName.' ';
-                        $result .= Html::a($model->lastName, ['movie/actors/view', 'id_actor' => $model->id_actor], ['class' => 'profile-link text-decoration-none text-reset']) ;
+                        $result .= $model->firstName . ' ';
+                        $result .= Html::a($model->lastName, ['movie/actors/view', 'id_actor' => $model->id_actor], ['class' => 'profile-link text-decoration-none text-reset']);
                         return $result;
                     },
                     'format' => 'html',
                 ],
 
-//                'firstName',
-//                'lastName',
             ],
-        ]); ?>
+        ]);
+        ?>
+
+
 
         <div class="row">
-            <iframe width="100%" height="1000" src="<?= $model->video ?>" frameborder="0" allowfullscreen></iframe>
+<!--            <iframe width="100%" height="1000" src="--><?//= $model->video ?><!--" frameborder="0" allowfullscreen></iframe>-->
+            <?= Html::a('Для просмотра фильма перейдите по ссылке', Url:: to($model->video), ['class' => 'profile-link', 'target'=>'_blank']) ?>
         </div>
+
+        <?= $this->render('/comment/comment', [
+            'model'=>$model,
+            'comments'=>$comments,
+            'commentForm'=>$commentForm,
+        ])
+        ?>
     </div>
 
 

@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Actors;
+use app\models\CommentForm;
 use app\models\Film;
 use app\models\FilmSearch;
 use app\models\ImageUpload;
@@ -31,17 +32,18 @@ class FilmController extends Controller
             [
                 'access' => [
                     'class' => AccessControl::className(),
+                    'only' => ['index', 'update', 'create', 'delete',],
                     'rules' => [
                         [
                             'allow' => true,
                             'actions' => ['index', 'update', 'create', 'delete'],
                             'roles' => ['admin'],
                         ],
-                        [
-                            'actions' => ['view', 'index_list', 'index-search'],
-                            'allow' => true,
-                            'roles' => ['?', '@'],
-                        ],
+//                        [
+//                            'actions' => ['view', 'index_list', 'index-search', 'comment'],
+//                            'allow' => true,
+//                            'roles' => ['?', '@'],
+//                        ],
 
                     ],
                 ],
@@ -120,9 +122,14 @@ class FilmController extends Controller
             ]
         );
 
+        $comments = $actor->getFilmComments();
+        $commentForm = new CommentForm();
+
         return $this->render('view', [
             'model' => $actor,
             'movieDataProvider' => $movieDataProvider,
+            'comments' => $comments,
+            'commentForm' => $commentForm,
         ]);
     }
 
@@ -237,5 +244,16 @@ class FilmController extends Controller
         }
     }
 
+    public function actionComment($id)
+    {
+        $model = new CommentForm();
 
+        if (Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->post());
+            if ($model->saveComment($id)) {
+                Yii::$app->getSession()->setFlash('comment', 'Your comment will be added soon!');
+                return $this->redirect(['film/view', 'id_film' => $id]);
+            }
+        }
+    }
 }

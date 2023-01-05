@@ -49,6 +49,7 @@ AppAsset::register($this);
                 ['label' => 'Категории', 'url' => ['/category/index']],
                 ['label' => 'Актеры', 'url' => ['/movie/actors/index']],
                 ['label' => 'Соответствие', 'url' => ['/actfilm/index']],
+                ['label' => 'Комментарии', 'url' => ['/comment/index']],
             ]] : '',
 
 

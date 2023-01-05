@@ -17,7 +17,7 @@ use yii\base\NotSupportedException;
  * @property string $password
  * @property string $email
  *
- * @property UserRating[] $userRatings
+ * @property Comment[] $userRatings
  */
 class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
@@ -37,7 +37,7 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public function getUserRatings()
     {
-        return $this->hasMany(UserRating::class, ['id_user' => 'id_user']);
+        return $this->hasMany(Comment::class, ['id_user' => 'id_user']);
     }
 
 

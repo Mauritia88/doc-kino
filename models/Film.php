@@ -22,7 +22,7 @@ use yii\web\UploadedFile;
  *
  * @property Actfilm[] $actfilms
  * @property Category $cat
- * @property UserRating[] $userRatings
+ * @property Comment[] $userRatings
  */
 class Film extends \yii\db\ActiveRecord
 {
@@ -97,7 +97,12 @@ class Film extends \yii\db\ActiveRecord
      */
     public function getUserRatings()
     {
-        return $this->hasMany(UserRating::class, ['id_film' => 'id_film']);
+        return $this->hasMany(Comment::class, ['id_film' => 'id_film']);
+    }
+
+    public function getFilmComments()
+    {
+        return $this->getUserRatings()->where(['status'=>1])->all();
     }
 
     public function saveImage($filename)
