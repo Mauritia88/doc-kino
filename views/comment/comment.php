@@ -41,6 +41,6 @@ if(!empty($comments)):?>
         </div>
         <button type="submit" class="btn send-btn btn-success">Оставить комментарий</button>
 
-        <?php \yii\widgets\ActiveForm::end();?>
+        <?php ActiveForm::end();?>
     </div><!--end leave comment-->
 <?php endif;?>

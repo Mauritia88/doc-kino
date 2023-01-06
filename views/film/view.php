@@ -87,17 +87,17 @@ $this->title = $model->title;
         ?>
 
 
-
         <div class="row">
-<!--            <iframe width="100%" height="1000" src="--><?//= $model->video ?><!--" frameborder="0" allowfullscreen></iframe>-->
-            <?= Html::a('Для просмотра фильма перейдите по ссылке', Url:: to($model->video), ['class' => 'profile-link', 'target'=>'_blank']) ?>
+            <!--            <iframe width="100%" height="1000" src="-->
+            <? //= $model->video ?><!--" frameborder="0" allowfullscreen></iframe>-->
+            <?= Html::a('Для просмотра фильма перейдите по ссылке', Url:: to($model->video), ['class' => 'profile-link', 'target' => '_blank']) ?>
         </div>
 
         <?= $this->render('/comment/comment', [
-            'model'=>$model,
-            'comments'=>$comments,
-            'commentForm'=>$commentForm,
-        ])
+            'model' => $model,
+            'comments' => $comments,
+            'commentForm' => $commentForm,
+        ]);
         ?>
     </div>
 
