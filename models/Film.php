@@ -113,7 +113,7 @@ class Film extends \yii\db\ActiveRecord
 
     public function getImage()
     {
-        return ($this->image) ? '/images/' . $this->image : '/images/no-image.jpg';
+        return ($this->image) ? '/web/images/' . $this->image : '/web/images/no-image.jpg';
     }
     public function deleteImage()
     {
