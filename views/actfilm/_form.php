@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_a')->dropDownList(ArrayHelper::map(\app\models\Actors::find()->all(), 'id_actor', 'lastName'),
+    <?= $form->field($model, 'id_a')->dropDownList(ArrayHelper::map(\app\modules\movie\models\Actors::find()->all(), 'id_actor', 'lastName'),
         ['prompt' => 'Укажите актера'])->label(false);?>
 
     <?= $form->field($model, 'id_f')->dropDownList(ArrayHelper::map(\app\models\Film::find()->all(), 'id_film', 'title'),

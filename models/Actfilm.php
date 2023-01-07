@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\modules\movie\models\Actors;
 use Yii;
 
 /**
